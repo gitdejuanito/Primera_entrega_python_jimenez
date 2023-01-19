@@ -1,19 +1,16 @@
 {% extends "base.html" %}
-
 {% block content %}
-    <p>{%for x in products%}</p>
+
+    <h3>Pais de transaccion: {{products1.lugar}}</h3>
+
+
+    {%for x in products%}
     <p><h3>¿Cual movimiento fue realizado?: {{x.movimiento}}</h3></p>
     <p><h3>¿Cuanto dinero fue el movimiento $: {{x.cuanto}}</h3></p>
     <p><h3>¿El movimiento es real?: {{x.existe}}</h3></p>
  
 
-    <p>{%for y in products1%}</p>
-        <p><h3>¿Que pais es: {{y.lugar}}</h3></p>
-        <p>{% endfor %}</p>
-
-        <p>{%for z in products2%}</p>
-        <p><h3>¿Que banco es:{{x.nombre}}<p><h3></h3>
-            <p>{% endfor %}</p>
+    
     
     <p>{% endfor %}</p>
     
