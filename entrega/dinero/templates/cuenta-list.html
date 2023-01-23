@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% for x in cuentas %} 
+
+   <p> {{x.Nombre_del_titular}}</p>
+   <p>  {{x.Banco}}</p>
+   <p> {{x.Numero_de_cuenta}}</p>
+   <p> {{x.Codigo_Postal}}</p>
+
+    <a href="/cuenta/cuentas-update/{{x.id}}/" class="btn btn-primary">Actualizar cuenta</a>
+    <a href="/cuenta/cuenta-delete/{{x.pk}}/" class="btn btn-danger" >Borrar cuenta</a>
+
+    {% endfor %}    
+
+
+
+
+
+
+
+{% endblock %}

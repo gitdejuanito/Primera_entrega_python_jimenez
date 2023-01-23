@@ -14,3 +14,9 @@ class dinero(models.Model):
     cuanto=models.FloatField()
     existe=models.BooleanField(default=True)
 
+    def __str__(self):
+        return self.movimiento
+    
+    class Meta:
+        verbose_name="Dinero"
+        verbose_name_plural="Movimientos con dinero"

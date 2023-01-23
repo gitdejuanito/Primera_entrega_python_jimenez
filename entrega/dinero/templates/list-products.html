@@ -7,7 +7,7 @@
     {%for x in products%}
     <p><h3>¿Cual movimiento fue realizado?: {{x.movimiento}}</h3></p>
     <p><h3>¿Cuanto dinero fue el movimiento $: {{x.cuanto}}</h3></p>
-    <p><h3>¿El movimiento es real?: {{x.existe}}</h3></p>
+    <p><h3>¿Movimiento registrado?: {{x.existe}}</h3></p>
  
 
     
@@ -15,7 +15,7 @@
     <p>{% endfor %}</p>
     
     
-
+    <center><h2>Crear nuevo movimiento:</h2> <a href="/formulario/" class="btn btn-primary"> Crear</a></center>
    
 
 {% endblock %}

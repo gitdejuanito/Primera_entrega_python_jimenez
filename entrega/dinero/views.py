@@ -20,10 +20,10 @@ def create_product(request):
 def list_products(request):
     print(request.GET)
     if 'search' in request.GET:
-        busca=request.GET['search']
-        all_products= dinero.objects.filter(movimiento__icontains=busca)
-        all_products1= pais.objects.filter(lugar__icontains=busca)
-        all_products2= banco.objects.filter(nombre__icontains=busca)
+        search=request.GET['search']
+        all_products= dinero.objects.filter(movimiento__icontains=search)
+        all_products1= pais.objects.filter(lugar__icontains=search)
+        all_products2= banco.objects.filter(nombre__icontains=search)
 
     else:
         all_products= dinero.objects.all()
@@ -42,8 +42,20 @@ def formulario(request):
         }
         return render (request,"formulario.html",context=context)
     elif request.method=="POST":
-        dinero.objects.create( movimiento=request.POST["movimiento"], cuanto=request.POST["cuanto"],)
-        pais.objects.create(lugar=request.POST["lugar"])
-        banco.objects.create(nombre=request.POST["nombre"])
+        form=ProductForm(request.POST)
+        if form.is_valid():
+            dinero.objects.create( 
+                movimiento=form.cleaned_data["movimiento"], 
+                cuanto=form.cleaned_data["cuanto"],
+                )
+            
+            pais.objects.create(lugar=form.cleaned_data["lugar"],)
+
+            banco.objects.create(nombre=form.cleaned_data["nombre"],)
+            return render (request,"formulario.html",context={}) and HttpResponse("Movimiento creado")
+        else:
+            context={"form_errors": form.errors,
+            "form":ProductForm
+            }
+        return render (request,"formulario.html",context={}) and HttpResponse("Movimiento rechazado, porfavor vuelva a intentarlo")
         
-        return HttpResponse("Movimiento creado")

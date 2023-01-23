@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+
+{%block content%}
+
+<h2> Prestador a borrar {{object.Nombre_del_titular}}</h2>
+
+<p>¿Quieres eliminar la cuenta?</p>
+
+<table>
+    {{ form}}
+    
+</table>
+<form action="" method="POST">
+{% csrf_token %}
+
+<input type="submit" value="Borrar">
+
+</form>
+
+{% endblock%}

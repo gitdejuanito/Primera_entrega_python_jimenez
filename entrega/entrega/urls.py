@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import include
 from dinero.views import create_product, list_products, index, formulario
 
 urlpatterns = [
@@ -24,4 +25,6 @@ urlpatterns = [
     path ('list-product/' , list_products),
     path ('formulario/' , formulario),
     
+    path ("cuenta/", include("cuenta.urls")),
+    path ("USERS/", include("USERS.urls")),
 ]

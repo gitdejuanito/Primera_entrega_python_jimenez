@@ -2,10 +2,10 @@
 
 {% block content %}
 
-<h1> $ MOVIMIENTOS BANCARIOS $</h1>
+<h1> CREAR UNA CUENTA</h1>
 
 
-
+<table>
    {% if form %}
 
     <form action="" method="POST">
@@ -13,12 +13,10 @@
         
         <p>{{form}}</p>
 
-    <input type="submit" value="Crear movimiento" >
+    <input type="submit" value="Crear CUENTA" >
     </form>
     {% endif %}
 
-    {% if form_errors %}
-    {{form_errors}}
-    {% endif%}
 
+</table>
 {% endblock %}

@@ -7,6 +7,13 @@ class ProductForm (forms.Form):
     existe=forms.BooleanField(required=False)
     nombre=forms.CharField(max_length=100)
 
+
+#html 
+
+#<form action="" method="POST">
+    #{% csrf_token %}
+    #<p> Nombre: <input type="text" name="name"> </p>
+    #<p> Precio: <input type="number" name="price"> </p>
     
 
 
