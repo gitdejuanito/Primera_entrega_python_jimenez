@@ -17,7 +17,9 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include
 from dinero.views import create_product, list_products, index, formulario
-
+from entrega.settings import MEDIA_ROOT,MEDIA_URL
+from django.conf.urls.static import static
+from dinero.views import delete
 urlpatterns = [
     path('',index,name='index'),
     path('admin/', admin.site.urls),
@@ -27,4 +29,5 @@ urlpatterns = [
     
     path ("cuenta/", include("cuenta.urls")),
     path ("USERS/", include("USERS.urls")),
-]
+    path ('moveDelete/<int:pk>/' , delete.as_view()),
+] + static(MEDIA_URL, document_root=MEDIA_ROOT)

@@ -3,7 +3,12 @@ from cuenta.models import Cuenta
 from cuenta.forms import CuentaForm
 from django.http import HttpResponse
 from django.views.generic import DeleteView
+from django.contrib.auth.decorators import login_required
+
+
 # Create your views here.
+
+@login_required
 def cuentas_list(request):
     cuentas=Cuenta.objects.filter(is_active=True)
     context={
@@ -11,7 +16,7 @@ def cuentas_list(request):
     }
     return render(request, "cuenta-list.html",context=context)
 
-
+@login_required
 def cuentas_create(request):
     if request.method=="GET":
         context={

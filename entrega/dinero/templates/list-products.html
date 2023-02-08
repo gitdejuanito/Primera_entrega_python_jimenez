@@ -1,18 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3>Pais de transaccion: {{products1.lugar}}</h3>
+<h1>Listado de movimientos bancarios de {{request.user.username}}</h1>
+<br>
 
+{%for x in products%}
+<div class="card" style="width: 18rem;">
+    <div class="card-header">
+        Nombre del titular: {{x.nombre_del_titular}}
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">¿Cual movimiento fue realizado?: {{x.movimiento}}</li>
+      <li class="list-group-item">¿Cuanto dinero fue el movimiento $: {{x.cuanto}}</li>
+      <li class="list-group-item">¿Movimiento registrado?: {{x.existe}}</li>
+      <li class="list-group-item">Nombre del banco: {{x.nombre_banco}}</li>
+    </ul>
 
-    {%for x in products%}
-    <p><h3>¿Cual movimiento fue realizado?: {{x.movimiento}}</h3></p>
-    <p><h3>¿Cuanto dinero fue el movimiento $: {{x.cuanto}}</h3></p>
-    <p><h3>¿Movimiento registrado?: {{x.existe}}</h3></p>
+    <a href="/moveDelete/{{x.pk}}/" class="btn btn-danger" >Borrar movimiento</a>
  
+  </div>
+  <br>
+  <p>{% endfor %}</p>
+
+
 
     
-    
-    <p>{% endfor %}</p>
     
     
     <center><h2>Crear nuevo movimiento:</h2> <a href="/formulario/" class="btn btn-primary"> Crear</a></center>

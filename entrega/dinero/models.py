@@ -13,6 +13,8 @@ class dinero(models.Model):
     movimiento= models.CharField(max_length=100)
     cuanto=models.FloatField()
     existe=models.BooleanField(default=True)
+    nombre_banco=models.CharField(max_length=100,default=True)
+    nombre_del_titular=models.CharField(max_length=100,default=True)
 
     def __str__(self):
         return self.movimiento

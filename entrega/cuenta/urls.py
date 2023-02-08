@@ -4,6 +4,7 @@ from django.urls import path
 from cuenta.views import cuentas_list
 from cuenta.views import cuentas_create
 from cuenta.views import cuentas_update, CuentaDeleteView
+from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     

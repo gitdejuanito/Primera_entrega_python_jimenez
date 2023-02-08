@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+
+
+{%block content%}
+
+<h2> Movimiento a borrar</h2>
+
+<p>{{object.Nombre_del_titular}}</p>
+<p>{{object.movimiento}}</p>
+<p>{{object.cuanto}}</p>
+<p>{{object.nombre_banco}}</p>
+
+
+
+
+
+
+
+<p>¿Quieres eliminar el movimiento?</p>
+
+<table>
+    {{ form}}
+    
+</table>
+<form action="" method="POST">
+{% csrf_token %}
+
+<input type="submit" value="Borrar">
+
+</form>
+
+{% endblock%}

@@ -1,15 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
-
+<h1>Lista de cuentas registradas de {{request.user.username}}</h1>
 {% for x in cuentas %} 
 
-   <p> {{x.Nombre_del_titular}}</p>
-   <p>  {{x.Banco}}</p>
-   <p> {{x.Numero_de_cuenta}}</p>
-   <p> {{x.Codigo_Postal}}</p>
+<br>
+<div class="card" style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Nombre del Titular: {{x.Nombre_del_titular}}</li>
+      <li class="list-group-item">Banco: {{x.Banco}}</li>
+      <li class="list-group-item">CLABE: {{x.Numero_de_cuenta}}</li>
+      <li class="list-group-item">Codigo Postal: {{x.Codigo_Postal}}</li>
+    </ul>
+  </div>
+  <a href="/cuenta/cuentas-update/{{x.id}}/" class="btn btn-primary">Actualizar cuenta</a>
+  <a href="/cuenta/cuenta-delete/{{x.pk}}/" class="btn btn-danger" >Borrar cuenta</a>
 
-    <a href="/cuenta/cuentas-update/{{x.id}}/" class="btn btn-primary">Actualizar cuenta</a>
-    <a href="/cuenta/cuenta-delete/{{x.pk}}/" class="btn btn-danger" >Borrar cuenta</a>
+
+   <br>
+
+    
+    <br>
+    <br>
 
     {% endfor %}    
 
